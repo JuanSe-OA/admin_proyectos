@@ -1,0 +1,97 @@
+# ========================================
+# ARCHIVOS Y CARPETAS DEL ENTORNO VIRTUAL
+# ========================================
+venv/
+.env/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.db
+
+# ========================================
+# CONFIGURACIONES DE ENTORNO / VARIABLES
+# ========================================
+.env
+*.env
+.env.*
+
+# ========================================
+# ARCHIVOS DE LOG Y CACHE
+# ========================================
+*.log
+*.pot
+*.py[cod]
+*.so
+.cache/
+coverage/
+htmlcov/
+instance/
+*.sqlite3
+
+# ========================================
+# CONFIGURACIÓN DE VS CODE
+# ========================================
+.vscode/
+*.code-workspace
+
+# ========================================
+# ARCHIVOS TEMPORALES DEL SISTEMA
+# ========================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# ========================================
+# DEPENDENCIAS / COMPILADOS
+# ========================================
+pip-log.txt
+pip-delete-this-directory.txt
+__pycache__/
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+MANIFEST
+
+# ========================================
+# DOCKER Y ENTORNOS
+# ========================================
+# Archivos generados por Docker
+*.pid
+*.seed
+*.tar
+*.bak
+docker-compose.override.yml
+
+# ========================================
+# TESTING Y COBERTURA
+# ========================================
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+nosetests.xml
+*.spec
+
+# ========================================
+# JUPYTER / NOTEBOOKS (si llegas a usarlos)
+# ========================================
+.ipynb_checkpoints/
+*.ipynb
+
+# ========================================
+# REPORTES / EXPORTACIONES
+# ========================================
+reports/
+output/
+uploads/
+temp/
+media/

@@ -1,0 +1,86 @@
+# ========================================
+# DEPENDENCIAS PRINCIPALES
+# ========================================
+
+# Flask y extensiones core
+Flask==3.0.0
+Flask-SQLAlchemy==3.1.1
+Flask-Login==0.6.3
+Flask-Migrate==4.0.5
+Flask-WTF==1.2.1
+
+# ========================================
+# BASE DE DATOS
+# ========================================
+
+# PostgreSQL
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.23
+
+# ========================================
+# SEGURIDAD Y AUTENTICACIÓN
+# ========================================
+
+Werkzeug==3.0.1
+PyJWT==2.8.0
+itsdangerous==2.1.2
+
+# ========================================
+# FORMULARIOS Y VALIDACIÓN
+# ========================================
+
+# WTForms con soporte de validación de email integrado
+WTForms[email]==3.1.1
+
+# ========================================
+# UTILIDADES
+# ========================================
+
+python-dotenv==1.0.0
+pytz==2023.3
+python-dateutil==2.8.2
+
+# ========================================
+# VISUALIZACIÓN DE DATOS
+# ========================================
+
+plotly==5.18.0
+pandas==2.1.4
+matplotlib==3.8.2
+
+# ========================================
+# DESARROLLO Y TESTING
+# ========================================
+
+pytest==7.4.3
+pytest-flask==1.3.0
+pytest-cov==4.1.0
+coverage==7.3.2
+faker==21.0.0
+
+# Depuración
+Flask-DebugToolbar==0.14.1
+
+# ========================================
+# PRODUCCIÓN
+# ========================================
+
+gunicorn==21.2.0
+
+# ========================================
+# EXTRAS OPCIONALES
+# ========================================
+
+# Exportar a PDF/Excel
+openpyxl==3.1.2
+reportlab==4.0.7
+
+# Envío de emails
+Flask-Mail==0.9.1
+
+# Manejo de archivos CSV
+csv-reader==1.2.0
+
+# Tareas asíncronas (opcional)
+# celery==5.3.4
+# redis==5.0.1
