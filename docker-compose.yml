@@ -1,46 +1,30 @@
 services:
-  # Base de datos PostgreSQL
-  db:
-    image: postgres:15-alpine
-    container_name: gestion_proyectos_db
-    restart: always
-    environment:
-      POSTGRES_USER: gestion_user
-      POSTGRES_PASSWORD: gestion_password
-      POSTGRES_DB: gestion_proyectos
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - gestion_network
-
-  # Aplicación Flask
-  web:
+  api:
     build: .
-    container_name: gestion_proyectos_web
-    restart: always
-    command: gunicorn -w 4 -b 0.0.0.0:5000 run:app
+    container_name: admin_api
     environment:
-      FLASK_ENV: production
-      DATABASE_URL: postgresql://gestion_user:gestion_password@db:5432/gestion_proyectos
-      SECRET_KEY: ${SECRET_KEY:-cambiar-en-produccion}
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/admin_db
+      - SECRET_KEY=dev-secret
+      - JWT_SECRET_KEY=dev-jwt
+      - CORS_ORIGINS=*
     ports:
       - "5000:5000"
     depends_on:
       - db
     volumes:
       - .:/app
-      - static_volume:/app/app/static
-      - media_volume:/app/uploads
-    networks:
-      - gestion_network
 
-  # pgAdmin para administrar la base de datos (opcional)
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: gestion_proyectos_pgadmin
-    restart: always
+  db:
+    image: postgres:16
+    container_name: admin_db
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@gestion.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=admin_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
