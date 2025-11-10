@@ -26,5 +26,16 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  frontend:
+    build:
+      context: ../admin-fronted
+    container_name: admin_frontend
+    depends_on:
+      - api
+    ports:
+      - "8080:80"      # Acceso al frontend en http://localhost:8080
+    # Si quieres parametrizar el build con otra base de API:
+    environment:
+      - VITE_API_BASE=/api/v1
 volumes:
   pgdata:
