@@ -13,6 +13,12 @@ services:
       - db
     volumes:
       - .:/app
+    command: >
+      sh -c "
+        until pg_isready -h db -p 5432 -U postgres; do echo 'Esperando Postgres...'; sleep 1; done &&
+        python app/seed.py &&
+        python run.py
+      "
 
   db:
     image: postgres:16
@@ -33,7 +39,7 @@ services:
     depends_on:
       - api
     ports:
-      - "8080:80"      # Acceso al frontend en http://localhost:8080
+      - "8080:80" # Acceso al frontend en http://localhost:8080
     # Si quieres parametrizar el build con otra base de API:
     environment:
       - VITE_API_BASE=/api/v1
